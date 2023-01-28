@@ -1,7 +1,7 @@
 // templates are built here using the classes.js object constructors
 
 // constructs the header, this will be the same every time the program executes
-let headerConstructor = () => {
+let headerConstructor = () => { let headerTemplate =
 
 `<!-- header that contains all of the basic HTML typings, and links boostrap stylesheets. -->
 <!DOCTYPE html>
@@ -22,9 +22,10 @@ let headerConstructor = () => {
     <div class="container text-center">
         <div class="row">
 `
+return headerTemplate;
 };
 // constructs the cards, this will happen for as many time as the user puts in employees, and will change based off of input
-let cardConstructor = (name, employeeType, employeeSymbol, ID, email, officeNumOrGithub) => {
+let cardConstructor = (name, employeeType, employeeSymbol, id, email, phoneNumGithubOrSchool) => { let cardTemplate = 
 `
             <div class="col-lg-4">
                 <div class="card-body shadow mt-3 rounded">
@@ -37,17 +38,18 @@ let cardConstructor = (name, employeeType, employeeSymbol, ID, email, officeNumO
                     </div>
                     <div class = "bg-body-tertiary rounded-bottom">
                         <ul class = "pt-3 pb-3">
-                            <li class="card-text d-flex justify-content-start w-75 bg-white p-3 border rounded">${ID}</li>
-                            <li class="card-text d-flex justify-content-start w-75 bg-white p-3 border rounded">${email}</li>
-                            <li class="card-text d-flex justify-content-start w-75 bg-white p-3 border rounded">${officeNumOrGithub}</li>
+                            <li class="card-text d-flex justify-content-start w-75 bg-white p-3 border rounded">ID: ${id}</li>
+                            <li class="card-text d-flex justify-content-start w-75 bg-white p-3 border rounded">Email: ${email}</li>
+                            <li class="card-text d-flex justify-content-start w-75 bg-white p-3 border rounded">${phoneNumGithubOrSchool}</li>
                         </ul>
                     </div>
                 </div>
             </div>
 `
+return cardTemplate;
 };
 // constructs the footer, this will be the same every time the program executes
-let footerConstructor = () => {
+let footerConstructor = () => { let footerTemplate =
 `   
         </div>
     </div>
@@ -58,4 +60,11 @@ let footerConstructor = () => {
 </body>
 </html>
 `
+return footerTemplate;
+};
+// exports the functions out to the other files that need them
+module.exports = {
+    headerConstructor,
+    cardConstructor,
+    footerConstructor,
 };
